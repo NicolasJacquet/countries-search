@@ -1,12 +1,15 @@
 import React from "react";
 import Header from "./header";
-import "./../assets/styles/layout.scss";
+import ContentContainer from "./content-container";
+import css from "./../assets/styles/layout.module.scss";
 
 const Layout = ({ children }) => {
     return (
         <React.Fragment>
             <Header />
-            {children}
+            <main className={css.content}>
+                <ContentContainer>{children}</ContentContainer>
+            </main>
         </React.Fragment>
     );
 };

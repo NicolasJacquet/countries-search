@@ -5,7 +5,7 @@ import {
 } from "./../types/countries-types";
 
 const initialState = {
-    countries: [],
+    data: [],
     loading: false,
     error: false,
 };
@@ -20,13 +20,13 @@ export default (state = initialState, action) => {
         case SET_ERROR:
             return {
                 ...state,
-                countries: [],
+                data: [],
                 loading: false,
             };
         case SET_COUNTRIES:
             return {
                 ...state,
-                countries: action.payload,
+                data: action.payload,
                 loading: false,
             };
         default:

@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Home from "./../pages/home";
 import Details from "./../pages/details";
 import Layout from "./../components/layout";
+import "./../assets/styles/app.scss";
 
 const App = ({ getCountries }) => {
     useEffect(() => {
