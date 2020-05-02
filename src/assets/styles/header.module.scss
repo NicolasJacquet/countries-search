@@ -1,0 +1,26 @@
+.header {
+    background: var(--light-background);
+    color: var(--text-color);
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 24px 0;
+    transition: background var(--theme-transition);
+    box-shadow: var(--element-shadow);
+}
+
+.title {
+    margin: 0 20px 0 0;
+    font-size: 1.1rem;
+
+    @media (min-width: 480px) {
+        font-size: 1.6rem;
+    }
+}
+
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,16 @@
+:root {
+    /* General */
+    --theme-transition: ease 0.3s;
+    --element-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+
+    /* Default theme color */
+    --dark-background: #202c37;
+    --light-background: #2b3945;
+    --text-color: white;
+}
+
+.light {
+    --dark-background: #f5f5f5;
+    --light-background: #ffffff;
+    --text-color: #111517;
+}
