@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AngleRight } from "@styled-icons/fa-solid";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import css from "./../assets/styles/country-item.module.scss";
 
 const CountryItem = ({ country }) => {
-    console.log(country);
     const { name, population, capital, region, numericCode, flag } = country;
     return (
         <div className={css.container}>
             <div className={css.flagContainer}>
-                <img src={flag} alt='Country Flag' />
+                <LazyLoadImage alt='Country Flag' height='160' src={flag} />
             </div>
             <div className={css.informations}>
                 <h2 className={css.name}>{name}</h2>
