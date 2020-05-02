@@ -10,9 +10,9 @@ const ThemeSwitcher = ({ isDark, switchTheme }) => {
 
     React.useEffect(() => {
         if (isDark) {
-            document.body.classList.remove("light");
+            document.body.classList.add("dark");
         } else {
-            document.body.classList.add("light");
+            document.body.classList.remove("dark");
         }
     });
 
