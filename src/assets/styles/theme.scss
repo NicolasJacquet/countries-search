@@ -1,17 +1,20 @@
 :root {
     /* General */
-    --theme-transition: ease 0.3s;
+    --theme-transition: ease 0.2s;
     --element-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
     --border-radius: 6px;
+    --result-highlight-background: rgba(231, 177, 17, 0.8);
 
     /* Default theme color */
     --dark-background: #f5f5f5;
     --light-background: #ffffff;
     --text-color: #111517;
+    --input-focus-border-color: #a5a9ae;
 }
 
 .dark {
     --dark-background: #202c37;
     --light-background: #2b3945;
-    --text-color: white;
+    --text-color: #ffffff;
+    --input-focus-border-color: #768ea3;
 }

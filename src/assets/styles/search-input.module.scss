@@ -1,0 +1,36 @@
+.container {
+    position: relative;
+    margin-bottom: 40px;
+
+    @media (min-width: 668px) {
+        width: 460px;
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 28px;
+    transform: translateY(-50%);
+    opacity: 0.6;
+}
+
+.field {
+    transition: background var(--theme-transition),
+        color var(--theme-transition);
+    width: 100%;
+    border: 2px solid transparent;
+    box-shadow: var(--element-shadow);
+    border-radius: var(--border-radius);
+    background: var(--light-background);
+    font-size: 1rem;
+    padding: 20px 20px 20px 70px;
+    color: var(--text-color);
+
+    &:focus {
+        border-color: var(--input-focus-border-color);
+        outline: 0;
+    }
+}

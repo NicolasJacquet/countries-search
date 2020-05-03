@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 import { AngleRight } from "@styled-icons/fa-solid";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import css from "./../assets/styles/country-item.module.scss";
 
 const CountryItem = ({ country }) => {
@@ -9,10 +9,10 @@ const CountryItem = ({ country }) => {
     return (
         <div className={css.container}>
             <div className={css.flagContainer}>
-                <LazyLoadImage alt='Country Flag' height='160' src={flag} />
+                <img alt='Country Flag' height='160' src={flag} />
             </div>
             <div className={css.informations}>
-                <h2 className={css.name}>{name}</h2>
+                <h2 className={css.name}>{parse(name)}</h2>
                 <ul className={css.details}>
                     <li>
                         <span className={css.label}>Population: </span>

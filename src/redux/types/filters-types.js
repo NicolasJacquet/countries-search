@@ -1,0 +1,1 @@
+export const SET_SEARCH_KEYWORD = "SET_SEARCH_KEYWORD";

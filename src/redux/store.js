@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import themeReducer from "./reducers/theme-reducers";
 import countriesReducer from "./reducers/countries-reducers";
+import filtersReducer from "./reducers/filters-reducers";
 
 const initialState = {};
 const middleware = [thunk];
@@ -9,6 +10,7 @@ const middleware = [thunk];
 const reducers = combineReducers({
     theme: themeReducer,
     countries: countriesReducer,
+    filters: filtersReducer,
 });
 
 export default createStore(

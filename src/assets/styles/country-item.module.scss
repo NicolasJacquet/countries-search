@@ -23,6 +23,12 @@
 .name {
     margin: 0 0 16px;
     font-size: 1.2rem;
+
+    mark {
+        background: var(--result-highlight-background);
+        border-radius: 2px;
+        color: var(--text-color);
+    }
 }
 
 .details {
