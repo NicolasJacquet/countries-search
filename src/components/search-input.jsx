@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { forceCheck } from "react-lazyload";
 import { setSearchKeyword } from "./../redux/actions/filters-actions";
 import { Search } from "@styled-icons/fa-solid";
 import css from "./../assets/styles/search-input.module.scss";
@@ -16,6 +17,7 @@ const SearchInput = ({ searchKeyword, setSearchKeyword }) => {
 
         if (trimedValue.length > 0 || searchKeyword.length > 0) {
             setSearchKeyword(trimedValue);
+            forceCheck();
         }
     };
     return (
