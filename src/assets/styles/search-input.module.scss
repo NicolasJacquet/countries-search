@@ -1,11 +1,14 @@
+@import "./common.scss";
+
 .container {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
     @media (min-width: 668px) {
         width: 460px;
         max-width: 100%;
         margin-bottom: 0;
+        padding-right: 20px;
     }
 }
 
@@ -18,19 +21,6 @@
 }
 
 .field {
-    transition: background var(--theme-transition),
-        color var(--theme-transition);
-    width: 100%;
-    border: 2px solid transparent;
-    box-shadow: var(--element-shadow);
-    border-radius: var(--border-radius);
-    background: var(--light-background);
-    font-size: 1rem;
-    padding: 20px 20px 20px 70px;
-    color: var(--text-color);
-
-    &:focus {
-        border-color: var(--input-focus-border-color);
-        outline: 0;
-    }
+    @include common-fied-style;
+    padding-left: 70px;
 }

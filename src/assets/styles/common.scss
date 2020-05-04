@@ -1,0 +1,17 @@
+@mixin common-fied-style {
+    transition: background var(--theme-transition),
+        color var(--theme-transition);
+    border: 2px solid transparent;
+    box-shadow: var(--element-shadow);
+    border-radius: var(--border-radius);
+    background: var(--light-background);
+    font-size: 1rem;
+    color: var(--text-color);
+    padding: 20px;
+    width: 100%;
+
+    &:focus {
+        border-color: var(--input-focus-border-color);
+        outline: 0;
+    }
+}
