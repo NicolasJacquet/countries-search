@@ -10,7 +10,7 @@ const CountryDetails = () => {
     const { countryId } = useParams();
 
     const country = data.filter(
-        (country) => country.numericCode === countryId
+        (country) => country.alpha3Code === countryId
     )[0];
 
     if (!country) {
@@ -84,8 +84,8 @@ const CountryDetails = () => {
                     {borderCountries.map((country) => {
                         return (
                             <Link
-                                to={`/details/${country.numericCode}`}
-                                key={country.numericCode}
+                                to={`/details/${country.alpha3Code}`}
+                                key={country.alpha3Code}
                                 className={css.borderCountryLink}
                             >
                                 {country.name}

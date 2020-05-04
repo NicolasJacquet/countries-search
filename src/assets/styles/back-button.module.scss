@@ -7,4 +7,10 @@
 .button {
     @include common-fied-style(auto);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 10px;
 }

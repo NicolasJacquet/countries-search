@@ -5,7 +5,7 @@ import { AngleRight } from "@styled-icons/fa-solid";
 import css from "./../assets/styles/country-item.module.scss";
 
 const CountryItem = ({ country }) => {
-    const { name, population, capital, region, numericCode, flag } = country;
+    const { name, population, capital, region, alpha3Code, flag } = country;
     const formattedPopulation = new Intl.NumberFormat().format(population);
 
     return (
@@ -30,7 +30,7 @@ const CountryItem = ({ country }) => {
                     </li>
                 </ul>
             </div>
-            <Link to={`/details/${numericCode}`} className={css.link}>
+            <Link to={`/details/${alpha3Code}`} className={css.link}>
                 <span className={css.linkTxt}>
                     Show details
                     <AngleRight size={14} />
