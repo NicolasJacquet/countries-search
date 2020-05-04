@@ -6,6 +6,8 @@ import css from "./../assets/styles/country-item.module.scss";
 
 const CountryItem = ({ country }) => {
     const { name, population, capital, region, numericCode, flag } = country;
+    const formattedPopulation = new Intl.NumberFormat().format(population);
+
     return (
         <div className={css.container}>
             <div className={css.flagContainer}>
@@ -16,7 +18,7 @@ const CountryItem = ({ country }) => {
                 <ul className={css.details}>
                     <li>
                         <span className={css.label}>Population: </span>
-                        {population}
+                        {formattedPopulation}
                     </li>
                     <li>
                         <span className={css.label}>Region: </span>
