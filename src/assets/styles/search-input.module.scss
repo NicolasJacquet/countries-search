@@ -32,10 +32,14 @@
     background: none;
     color: var(--text-color);
     position: absolute;
-    right: 36px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0.5;
     transition: color var(--theme-transition);
+
+    @media (min-width: 668px) {
+        right: 36px;
+    }
 }
