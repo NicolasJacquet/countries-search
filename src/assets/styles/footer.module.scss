@@ -1,0 +1,23 @@
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px 0;
+}
+
+.link {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.icon {
+    margin-left: 10px;
+    opacity: 0.4;
+}
