@@ -63,7 +63,11 @@ const CountryDetails = () => {
                                 <li key={label} className={css.infoListItem}>
                                     <span className={css.label}>{label}:</span>{" "}
                                     {["string", "number"].includes(typeof value)
-                                        ? value
+                                        ? typeof value === "number"
+                                            ? new Intl.NumberFormat().format(
+                                                  value
+                                              )
+                                            : value
                                         : value.map((valueItem, i) => {
                                               if (valueItem.name) {
                                                   return i + 1 < value.length
@@ -77,22 +81,24 @@ const CountryDetails = () => {
                         })}
                     </ul>
                 </div>
-                <div className={css.borderCountriesContainer}>
-                    <h3 className={css.borderCountriesTitle}>
-                        Border countries:
-                    </h3>
-                    {borderCountries.map((country) => {
-                        return (
-                            <Link
-                                to={`/details/${country.alpha3Code}`}
-                                key={country.alpha3Code}
-                                className={css.borderCountryLink}
-                            >
-                                {country.name}
-                            </Link>
-                        );
-                    })}
-                </div>
+                {borderCountries.length > 0 && (
+                    <div className={css.borderCountriesContainer}>
+                        <h3 className={css.borderCountriesTitle}>
+                            Border countries:
+                        </h3>
+                        {borderCountries.map((country) => {
+                            return (
+                                <Link
+                                    to={`/details/${country.alpha3Code}`}
+                                    key={country.alpha3Code}
+                                    className={css.borderCountryLink}
+                                >
+                                    {country.name}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                )}
             </div>
         </div>
     );

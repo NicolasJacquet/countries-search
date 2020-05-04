@@ -1,6 +1,8 @@
 @import-normalize;
 @import "theme";
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
 html {
     box-sizing: border-box;
 }
@@ -20,8 +22,8 @@ body {
 body {
     font-size: 14px;
     margin: 0;
-    font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-        "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: "Nunito Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+        "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
