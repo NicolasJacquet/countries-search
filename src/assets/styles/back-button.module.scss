@@ -1,0 +1,10 @@
+@import "./common.scss";
+
+.container {
+    margin-bottom: 40px;
+}
+
+.button {
+    @include common-fied-style(auto);
+    cursor: pointer;
+}

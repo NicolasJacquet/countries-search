@@ -1,4 +1,4 @@
-@mixin common-fied-style {
+@mixin common-fied-style($width: 100%) {
     transition: background var(--theme-transition),
         color var(--theme-transition);
     border: 2px solid transparent;
@@ -8,7 +8,7 @@
     font-size: 1rem;
     color: var(--text-color);
     padding: 20px;
-    width: 100%;
+    width: $width;
 
     &:focus {
         border-color: var(--input-focus-border-color);
