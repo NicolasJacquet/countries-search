@@ -23,4 +23,19 @@
 .field {
     @include common-fied-style;
     padding-left: 70px;
+    padding-right: 50px;
+}
+
+.removeKeywordBtn {
+    border: 0;
+    outline: 0;
+    background: none;
+    color: var(--text-color);
+    position: absolute;
+    right: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: color var(--theme-transition);
 }

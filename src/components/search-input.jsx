@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { setSearchKeyword } from "./../redux/actions/filters-actions";
 import { Search } from "@styled-icons/fa-solid";
+import { TimesCircle } from "@styled-icons/fa-regular";
 import css from "./../assets/styles/search-input.module.scss";
 
 const trimString = (str) => {
@@ -10,14 +11,22 @@ const trimString = (str) => {
 };
 
 const SearchInput = ({ searchKeyword, setSearchKeyword }) => {
-    const handleChange = (e) => {
-        const value = e.currentTarget.value;
+    const isSearchKeyword = searchKeyword.length > 0;
+    const updateKeyword = (value) => {
         const trimedValue = trimString(value);
-
-        if (trimedValue.length > 0 || searchKeyword.length > 0) {
+        if (trimedValue.length > 0 || isSearchKeyword) {
             setSearchKeyword(trimedValue);
         }
     };
+
+    const handleChange = (e) => {
+        updateKeyword(e.currentTarget.value);
+    };
+
+    const handleClickRemove = () => {
+        updateKeyword("");
+    };
+
     return (
         <div className={css.container}>
             <Search size={20} className={css.icon} />
@@ -29,6 +38,14 @@ const SearchInput = ({ searchKeyword, setSearchKeyword }) => {
                 onChange={handleChange}
                 onBlur={(e) => setSearchKeyword(e.currentTarget.value.trim())}
             />
+            {isSearchKeyword && (
+                <button
+                    className={css.removeKeywordBtn}
+                    onClick={handleClickRemove}
+                >
+                    <TimesCircle size={20} />
+                </button>
+            )}
         </div>
     );
 };
