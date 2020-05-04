@@ -29,7 +29,6 @@ const CountriesList = () => {
 
     React.useEffect(() => {
         forceCheck();
-        console.log("check");
     });
 
     let countries = [];
