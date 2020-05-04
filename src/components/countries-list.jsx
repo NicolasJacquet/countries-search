@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { forceCheck } from "react-lazyload";
 import REGIONS from "./../utils/regions";
 import CountryItem from "./country-item";
 import css from "./../assets/styles/countries-list.module.scss";
@@ -25,6 +26,11 @@ const CountriesList = () => {
         countries: { data },
         filters: { searchKeyword, regionFilter },
     } = useSelector((state) => state);
+
+    React.useEffect(() => {
+        forceCheck();
+        console.log("check");
+    });
 
     let countries = [];
     const isRegionFilter = regionFilter.length > 0;
