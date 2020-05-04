@@ -1,7 +1,11 @@
-import { SET_SEARCH_KEYWORD } from "./../types/filters-types";
+import {
+    SET_SEARCH_KEYWORD,
+    SET_REGION_FILTER,
+} from "./../types/filters-types";
 
 const initialState = {
     searchKeyword: "",
+    regionFilter: [],
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +14,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 searchKeyword: action.payload,
+            };
+        case SET_REGION_FILTER:
+            return {
+                ...state,
+                regionFilter: action.payload,
             };
         default:
             return state;

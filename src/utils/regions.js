@@ -1,24 +1,9 @@
-const REGIONS = [
-    {
-        id: 1,
-        value: "Africa",
-    },
-    {
-        id: 2,
-        value: "Americas",
-    },
-    {
-        id: 3,
-        value: "Asia",
-    },
-    {
-        id: 4,
-        value: "Europe",
-    },
-    {
-        id: 5,
-        value: "Oceania",
-    },
-];
+const REGIONS = {
+    AFRICA: "Africa",
+    AMERICAS: "Americas",
+    ASIA: "Asia",
+    EUROPE: "Europe",
+    OCEANIA: "Oceania",
+};
 
-export default REGIONS;
+export default Object.freeze(REGIONS);

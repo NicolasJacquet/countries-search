@@ -1,31 +1,31 @@
 import React, { useState, useRef } from "react";
+import { connect } from "react-redux";
+import { setRegionFilter } from "./../redux/actions/filters-actions";
 import { AngleDown, AngleUp, Check } from "@styled-icons/fa-solid";
 import REGIONS from "./../utils/regions";
 import useOnClickOutside from "./../effects/use-on-click-outside";
 import css from "./../assets/styles/region-filter.module.scss";
 
-const RegionFilter = () => {
+const RegionFilter = ({ regionFilter, setRegionFilter }) => {
     const ref = useRef();
     const [open, setOpen] = useState(false);
-    const [selection, setSelection] = useState([]);
     const toggle = () => setOpen(!open);
-
     useOnClickOutside(ref, () => setOpen(false));
 
     const handleClick = (region) => {
-        if (!selection.some((current) => current.id === region.id)) {
-            setSelection([...selection, region]);
+        if (!regionFilter.some((current) => current === region)) {
+            setRegionFilter([...regionFilter, region]);
         } else {
-            let selectionAfterRemoval = selection;
+            let selectionAfterRemoval = regionFilter;
             selectionAfterRemoval = selectionAfterRemoval.filter(
-                (current) => current.id !== region.id
+                (current) => current !== region
             );
-            setSelection([...selectionAfterRemoval]);
+            setRegionFilter([...selectionAfterRemoval]);
         }
     };
 
     const isItemInSelection = (region) => {
-        if (selection.some((current) => current.id === region.id)) {
+        if (regionFilter.some((current) => current === region)) {
             return true;
         }
         return false;
@@ -44,21 +44,21 @@ const RegionFilter = () => {
             >
                 <p className={css.text}>
                     Filter by Region{" "}
-                    {selection.length > 0 && `(${selection.length})`}
+                    {regionFilter.length > 0 && `(${regionFilter.length})`}
                 </p>
                 <Icon size={20} />
             </div>
             {open && (
                 <ul className={css.list}>
-                    {REGIONS.map((item) => (
-                        <li className={css.listItem} key={item.id}>
+                    {Object.entries(REGIONS).map((item) => (
+                        <li className={css.listItem} key={item[0]}>
                             <button
                                 type='button'
-                                onClick={() => handleClick(item)}
+                                onClick={() => handleClick(item[0])}
                             >
-                                <span>{item.value}</span>
+                                <span>{item[1]}</span>
                                 <span>
-                                    {isItemInSelection(item) && (
+                                    {isItemInSelection(item[0]) && (
                                         <Check size={14} />
                                     )}
                                 </span>
@@ -71,4 +71,12 @@ const RegionFilter = () => {
     );
 };
 
-export default RegionFilter;
+const mapStateToProps = (state) => ({
+    regionFilter: state.filters.regionFilter,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    setRegionFilter: (regions) => dispatch(setRegionFilter(regions)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegionFilter);

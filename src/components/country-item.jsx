@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
-import LazyLoad from "react-lazyload";
 import { AngleRight } from "@styled-icons/fa-solid";
 import css from "./../assets/styles/country-item.module.scss";
 
@@ -10,9 +9,7 @@ const CountryItem = ({ country }) => {
     return (
         <div className={css.container}>
             <div className={css.flagContainer}>
-                <LazyLoad height={160}>
-                    <img alt='Country Flag' height='160' src={flag} />
-                </LazyLoad>
+                <img alt='Country Flag' height='160' src={flag} />
             </div>
             <div className={css.informations}>
                 <h2 className={css.name}>{parse(name)}</h2>

@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import REGIONS from "./../utils/regions";
 import CountryItem from "./country-item";
 import css from "./../assets/styles/countries-list.module.scss";
 
-const highlightMatchesInString = (name, keyword) => {
+const highlightMatches = (name, keyword) => {
     const regex = new RegExp(keyword.trim(), "i");
     if (!name.match(regex)) {
         return name;
@@ -22,22 +23,44 @@ const highlightMatchesInString = (name, keyword) => {
 const CountriesList = () => {
     const {
         countries: { data },
-        filters: { searchKeyword },
+        filters: { searchKeyword, regionFilter },
     } = useSelector((state) => state);
 
     let countries = [];
+    const isRegionFilter = regionFilter.length > 0;
 
-    if (searchKeyword) {
+    if (searchKeyword || isRegionFilter) {
         const filteredData = data.filter((country) => {
-            return country.name
-                .toLowerCase()
-                .includes(searchKeyword.toLowerCase().trim());
+            let isRegion = true;
+            let nameIncludeKeyword = true;
+
+            if (searchKeyword) {
+                nameIncludeKeyword = country.name
+                    .toLowerCase()
+                    .includes(searchKeyword.toLowerCase().trim());
+                if (!isRegionFilter) {
+                    return nameIncludeKeyword;
+                }
+            }
+
+            if (isRegionFilter) {
+                isRegion =
+                    country.region &&
+                    regionFilter.some(
+                        (region) => REGIONS[region] === country.region
+                    );
+                if (!searchKeyword) {
+                    return isRegion;
+                }
+            }
+
+            return isRegion && nameIncludeKeyword;
         });
 
         countries = filteredData.map((country) => {
             const updatedCountry = {
                 ...country,
-                name: highlightMatchesInString(country.name, searchKeyword),
+                name: highlightMatches(country.name, searchKeyword),
             };
             return <CountryItem country={updatedCountry} key={country.name} />;
         });
