@@ -1,7 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
+import CountryDetails from "./../components/country-details";
 
 const Details = () => {
-    return <div>Details page!</div>;
+    return (
+        <Fragment>
+            <CountryDetails />
+        </Fragment>
+    );
 };
 
 export default Details;

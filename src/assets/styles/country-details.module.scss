@@ -1,0 +1,91 @@
+.container {
+    @media (min-width: 668px) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.flagContainer {
+    margin-bottom: 40px;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    @media (min-width: 668px) {
+        width: 38%;
+        flex-shrink: 1;
+        margin-bottom: 0;
+    }
+}
+
+.name {
+    margin: 0 0 30px;
+    font-size: 2rem;
+}
+
+.infoContainer {
+    @media (min-width: 668px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 58%;
+        flex-shrink: 0;
+    }
+}
+
+.listContainer {
+    margin-bottom: 70px;
+}
+
+.infoList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    row-gap: 0.8rem;
+
+    @media (min-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    .infoListItem {
+        line-height: 1.3rem;
+    }
+
+    .label {
+        font-weight: bold;
+    }
+}
+
+.borderCountriesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.borderCountriesTitle {
+    margin: 0 10px 20px 0;
+    width: 100%;
+    flex-shrink: 0;
+
+    @media (min-width: 480px) {
+        width: auto;
+        margin: 0 10px 10px 0;
+    }
+}
+
+.borderCountryLink {
+    background: var(--light-background);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 24px;
+    box-shadow: var(--element-shadow);
+    border-radius: var(--border-radius);
+    margin: 0 10px 10px 0;
+    transition: background var(--theme-transition),
+        color var(--theme-transition);
+    font-size: 0.9rem;
+}
