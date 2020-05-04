@@ -15,6 +15,7 @@ export default (state = initialState, action) => {
         case LOADING_DATA:
             return {
                 ...state,
+                error: false,
                 loading: true,
             };
         case SET_ERROR:
@@ -22,12 +23,14 @@ export default (state = initialState, action) => {
                 ...state,
                 data: [],
                 loading: false,
+                error: true,
             };
         case SET_COUNTRIES:
             return {
                 ...state,
                 data: action.payload,
                 loading: false,
+                error: false,
             };
         default:
             return state;

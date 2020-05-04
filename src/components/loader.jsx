@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner, CircleNotch } from "@styled-icons/fa-solid";
+import { Spinner } from "@styled-icons/fa-solid";
 import css from "./../assets/styles/loader.module.scss";
 
 const Loader = () => {
